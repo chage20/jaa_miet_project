@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 
+
 class Car(models.Model):
     title = models.CharField('Название', max_length=200)
     price = models.IntegerField('Цена (₽)')

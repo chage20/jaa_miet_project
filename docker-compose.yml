@@ -9,9 +9,9 @@ services:
       - db
       - redis
     networks:
-      - jaa_net  # ← Все сервисы в одной сети
+      - jaa_net
 
-  db:  # ← Имя сервиса должно быть "db"
+  db:
     image: postgres:14-alpine
     environment:
       POSTGRES_DB: ${DB_NAME}
@@ -31,5 +31,5 @@ volumes:
   postgres_data:
 
 networks:
-  jaa_net:  # ← Общая сеть
+  jaa_net:
     driver: bridge

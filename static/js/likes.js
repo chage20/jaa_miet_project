@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let socket = null;
     const isAuth = window.USER_IS_AUTHENTICATED === true;
 
-    // Функция раскраски сердечек
     function paintLikes(likedIds) {
         likedIds.forEach(id => {
             const btn = document.querySelector(`.like-btn[data-car-id="${id}"]`);
@@ -13,24 +12,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 1️⃣ AJAX: получаем состояние при загрузке
     if (isAuth) {
-        // ИСПРАВЛЕНИЕ: Добавлен префикс /cars/
         fetch('/cars/api/my-likes/')
             .then(res => res.json())
             .then(data => {
                 paintLikes(data.liked_ids);
-                console.log('✅ Likes loaded via AJAX:', data.liked_ids);
+                console.log('Likes loaded via AJAX:', data.liked_ids);
                 connectWebSocket();
             })
             .catch(err => console.error(' AJAX error:', err));
     }
-    // 2️⃣ WebSocket: только для кликов в реальном времени
     function connectWebSocket() {
         const protocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
         socket = new WebSocket(`${protocol}${window.location.host}/ws/likes/`);
 
-        socket.onopen = () => console.log('✅ WS connected');
+        socket.onopen = () => console.log('WS connected');
 
         socket.onmessage = (e) => {
             try {
@@ -62,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
-    // 3️⃣ Клики
     document.querySelectorAll('.like-btn').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();

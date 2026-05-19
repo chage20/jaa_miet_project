@@ -23,7 +23,6 @@ class LikeConsumer(AsyncWebsocketConsumer):
 
         is_liked, total_count = await self.toggle_like(car_id)
 
-        # 🔹 Личное сообщение (только тому, кто нажал)
         await self.channel_layer.group_send(
             "likes_global",
             {
@@ -36,7 +35,6 @@ class LikeConsumer(AsyncWebsocketConsumer):
             }
         )
 
-        # 🔸 Публичное сообщение (всем остальным)
         await self.channel_layer.group_send(
             "likes_global",
             {
@@ -48,12 +46,10 @@ class LikeConsumer(AsyncWebsocketConsumer):
         )
 
     async def send_color(self, event):
-        # Отправляем только initiator'у
         if event.get("target_channel") == self.channel_name:
             await self.send(text_data=json.dumps(event))
 
     async def send_count(self, event):
-        # Отправляем всем
         await self.send(text_data=json.dumps(event))
 
     @database_sync_to_async

@@ -12,9 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-from dotenv import load_dotenv  # <-- Добавлено
+from dotenv import load_dotenv
 
-# Загружаем переменные из .env
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -51,7 +50,6 @@ INSTALLED_APPS = [
     'pages',
 ]
 
-# 3. Кастомный пользователь
 AUTH_USER_MODEL = 'users.CustomUser'
 
 MIDDLEWARE = [
@@ -145,12 +143,11 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
-# Redis для Channels (имя сервиса 'redis' из docker-compose)
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            'hosts': [('redis', 6379)],  # ← Важно: 'redis', не 'localhost'
+            'hosts': [('redis', 6379)],
         },
     },
 }

@@ -21,7 +21,6 @@
             <a href="{% url 'cars' %}">Автомобили</a>
 
             {% if user.is_authenticated %}
-                <!-- 👋 Приветствие -->
                 <span class="user-greeting">
                     Привет, <strong>{{ user.first_name|default:user.username }}</strong>!
                 </span>

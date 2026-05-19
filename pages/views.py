@@ -7,6 +7,5 @@ def index(request):
 
 
 def cars(request):
-    # Передаём все авто в шаблон
     cars_list = Car.objects.all()
     return render(request, 'cars.html', {'cars': cars_list})

@@ -4,7 +4,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import CustomUserCreationForm
-from cars.models import CarLike  # Импортируем модель лайков
+from cars.models import CarLike
+
 
 def register(request):
     if request.method == 'POST':
@@ -17,6 +18,7 @@ def register(request):
     else:
         form = CustomUserCreationForm()
     return render(request, 'register.html', {'form': form})
+
 
 def login_view(request):
     if request.method == 'POST':
@@ -32,13 +34,14 @@ def login_view(request):
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
 
+
 def logout_view(request):
     logout(request)
     messages.info(request, 'Вы вышли из системы.')
     return redirect('index')
 
+
 @login_required
 def profile_view(request):
-    # Получаем все лайки текущего пользователя
     liked_cars = CarLike.objects.filter(user=request.user).select_related('car')
     return render(request, 'profile.html', {'liked_cars': liked_cars})

@@ -15,7 +15,7 @@
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Исправлен глобальный сброс */
+
 * {
     margin: 0;
     padding: 0;
@@ -108,7 +108,6 @@ body {
     color: var(--primary);
 }
 
-/* --- НОВЫЕ СТИЛИ: ПРИВЕТСТВИЕ ПОЛЬЗОВАТЕЛЯ --- */
 .user-greeting {
     display: flex;
     align-items: center;
@@ -126,7 +125,7 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-/* Ссылка "Выйти" в стиле кнопки */
+
 .nav .logout-btn {
     color: var(--gray-400);
     border: 1px solid var(--gray-600);
@@ -142,7 +141,6 @@ body {
     border-color: var(--primary);
     background: rgba(229, 62, 62, 0.1);
 }
-/* ------------------------------------------------ */
 
 /* BUTTONS */
 .btn-primary {
@@ -205,7 +203,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* FLOATING CONTACT BUTTON */
 .floating-contact {
     position: fixed;
     bottom: 30px;
@@ -263,7 +260,6 @@ body {
     right: 80px;
 }
 
-/* SECTIONS */
 .section {
     padding: 100px 0;
     position: relative;

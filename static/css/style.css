@@ -15,6 +15,7 @@
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Исправлен глобальный сброс */
 * {
     margin: 0;
     padding: 0;
@@ -74,7 +75,7 @@ body {
 
 .nav {
     display: flex;
-    gap: 32px;
+    gap: 24px;
     align-items: center;
 }
 
@@ -106,6 +107,42 @@ body {
 .nav a:hover {
     color: var(--primary);
 }
+
+/* --- НОВЫЕ СТИЛИ: ПРИВЕТСТВИЕ ПОЛЬЗОВАТЕЛЯ --- */
+.user-greeting {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gray-400);
+    font-size: 14px;
+    margin-right: 12px;
+}
+
+.user-greeting strong {
+    color: var(--white);
+    font-weight: 600;
+    background: linear-gradient(90deg, var(--white), var(--gray-200));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Ссылка "Выйти" в стиле кнопки */
+.nav .logout-btn {
+    color: var(--gray-400);
+    border: 1px solid var(--gray-600);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.nav .logout-btn:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+    background: rgba(229, 62, 62, 0.1);
+}
+/* ------------------------------------------------ */
 
 /* BUTTONS */
 .btn-primary {

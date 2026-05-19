@@ -5,6 +5,8 @@ services:
       - "8000:8000"
     env_file:
       - .env
+    volumes:
+      - media_volume:/app/mediafiles
     depends_on:
       - db
       - redis
@@ -29,6 +31,7 @@ services:
 
 volumes:
   postgres_data:
+  media_volume:
 
 networks:
   jaa_net:

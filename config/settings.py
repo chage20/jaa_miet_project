@@ -155,8 +155,9 @@ CHANNEL_LAYERS = {
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-TELEGRAM_BOT_TOKEN='8671536333:AAG89MMikyruD8uZtAkjDm4RwH8LV8c73Gk'
-TELEGRAM_CHAT_ID=918165741
+TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN', '')
+TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID', '')
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

@@ -1,13 +1,16 @@
+import os
 import requests
 import logging
 from django.conf import settings
 
 logger = logging.getLogger(__name__)
 
+
+PROXY_URL = os.environ.get('HTTP_PROXY', '')
 HAPP_PROXY = {
-    'http': 'http://127.0.0.1:10809',
-    'https': 'http://127.0.0.1:10809',
-}
+    'http': PROXY_URL,
+    'https': PROXY_URL,
+} if PROXY_URL else {}
 
 
 def send_registration_notification(user):
@@ -25,6 +28,7 @@ def send_registration_notification(user):
         f"<b>Город:</b> {user.city}\n"
         f"<b>Логин:</b> {user.username}"
     )
+
     payload = {
         "chat_id": settings.TELEGRAM_CHAT_ID,
         "text": text,
@@ -36,7 +40,7 @@ def send_registration_notification(user):
             url,
             json=payload,
             timeout=15,
-            proxies=HAPP_PROXY
+            proxies=HAPP_PROXY if HAPP_PROXY else None
         )
         response.raise_for_status()
         logger.info(f"Telegram notification sent for {user.username}")

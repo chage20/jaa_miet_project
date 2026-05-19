@@ -1,0 +1,178 @@
+/* CARS PAGE (CAROUSEL) */
+.cars-section {
+    padding: 60px 0;
+    overflow: hidden;
+    background: var(--light-bg);
+}
+
+.cars-section h1 {
+    margin-bottom: 40px;
+    font-size: 36px;
+    color: var(--dark);
+}
+
+.cars-carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cars-carousel {
+    width: 100%;
+    max-width: 960px;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.car-card {
+    flex: 0 0 300px;
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid var(--gray-200);
+    transition: var(--transition);
+    position: relative;
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.car-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.car-card:hover::before {
+    opacity: 1;
+}
+
+.car-image {
+    height: 200px;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+    background: linear-gradient(135deg, var(--gray-200), var(--gray-400));
+}
+
+.car-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.car-card h3 {
+    font-size: 22px;
+    margin: 20px 20px 10px;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.car-card .muted {
+    margin: 0 20px 10px;
+    font-size: 14px;
+    text-align: left;
+    color: var(--gray-600);
+}
+
+.price {
+    font-weight: 800;
+    margin: 0 20px 20px;
+    color: var(--primary);
+    font-size: 24px;
+    letter-spacing: -0.5px;
+}
+
+.car-card .btn-outline {
+    margin: 0 20px 20px;
+}
+
+.carousel-arrow {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--gray-200);
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    z-index: 10;
+    flex-shrink: 0;
+}
+
+.carousel-arrow i {
+    font-size: 24px;
+}
+
+.carousel-arrow:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+/* LIKE BUTTON STYLES */
+.like-container {
+    margin: 0 20px 15px;
+}
+
+.like-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--white);
+    border: 2px solid var(--gray-200);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-600);
+}
+
+.like-btn i {
+    font-size: 18px;
+    transition: var(--transition);
+}
+
+.like-btn:hover {
+    border-color: var(--primary);
+    transform: scale(1.05);
+}
+
+.like-btn.liked {
+    background: rgba(229, 62, 62, 0.1);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.like-btn.liked i {
+    color: var(--primary);
+}
+
+.likes-count {
+    font-weight: 600;
+}

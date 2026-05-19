@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Japan Auto Auctions - Главная{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <h1>Japan Auto Auctions</h1>
+        <p>Полный цикл: подбор, проверка, покупка, доставка и таможенное оформление.</p>
+        <div class="hero-buttons">
+            <a href="{% url 'cars' %}" class="btn-primary">Посмотреть автомобили</a>
+        </div>
+    </div>
+</section>
+
+<section class="section light">
+    <div class="container">
+        <h2>О компании</h2>
+        <p class="muted">Мы работаем напрямую с японскими аукционами и гарантируем прозрачность сделки, честную оценку состояния автомобиля и полное сопровождение.</p>
+    </div>
+</section>
+{% endblock %}

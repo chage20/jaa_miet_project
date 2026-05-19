@@ -1,0 +1,43 @@
+/* HERO SECTION */
+.hero {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(229, 62, 62, 0.85));
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    animation: fadeInUp 0.8s ease;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 28px;
+    opacity: 0.9;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 20px;
+    animation: fadeInUp 0.8s ease 0.4s both;
+}
